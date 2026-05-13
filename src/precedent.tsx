@@ -1,6 +1,13 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
+import danMichaelsonPhoto from "@/assets/dan-michaelson.jpg";
+import danFlattPhoto from "@/assets/dan-flatt.webp";
+
+const FOUNDER_PHOTOS: Record<string, string> = {
+  "Dan Michaelson": danMichaelsonPhoto,
+  "Dan Flatt": danFlattPhoto,
+};
 
 // =========================================================================
 // CONFIG (CUSTOMIZE markers)
@@ -475,8 +482,8 @@ const WhyNowSection = () => (
 
 const FounderCard = ({ name, role, bullets }: { name: string; role: string; bullets: string[] }) => (
   <motion.div variants={fadeUp}>
-    <div className="aspect-[4/5] mb-6 overflow-hidden flex items-center justify-center" style={{ backgroundColor: palette.navy, color: palette.gold, fontFamily: SERIF }}>
-      <span className="text-sm tracking-[0.2em] uppercase opacity-60">[ Photo: {name} ]</span>
+    <div className="aspect-[4/5] mb-6 overflow-hidden" style={{ backgroundColor: palette.navy }}>
+      <img src={FOUNDER_PHOTOS[name]} alt={`Portrait of ${name}`} className="w-full h-full object-cover" loading="lazy" />
     </div>
     <h3 className="text-3xl mb-2 leading-tight" style={{ color: palette.navy, fontFamily: SERIF, fontWeight: 500 }}>{name}</h3>
     <p className="text-sm tracking-wide uppercase mb-5 font-medium" style={{ color: palette.goldDeep, fontFamily: SANS }}>{role}</p>
@@ -698,8 +705,8 @@ export const HomePage = () => (
 const FounderDetail = ({ name, role, paragraphs, reverse = false }: { name: string; role: string; paragraphs: string[]; reverse?: boolean }) => (
   <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
     <div className={`md:col-span-5 ${reverse ? "md:order-2" : ""}`}>
-      <div className="aspect-[4/5] flex items-center justify-center" style={{ backgroundColor: palette.navy, color: palette.gold }}>
-        <span className="text-sm tracking-[0.2em] uppercase opacity-60">[ Photo: {name} ]</span>
+      <div className="aspect-[4/5] overflow-hidden" style={{ backgroundColor: palette.navy }}>
+        <img src={FOUNDER_PHOTOS[name]} alt={`Portrait of ${name}`} className="w-full h-full object-cover" loading="lazy" />
       </div>
     </div>
     <div className={`md:col-span-7 ${reverse ? "md:order-1" : ""}`}>
