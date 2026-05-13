@@ -1,26 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { HomePage } from "../precedent";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Precedent AI · Legal AI Implementation for Ontario Law Firms" },
+      { name: "description", content: "Ontario's dedicated legal AI implementation partner. Vendor-neutral. Workflow-specific. Built around privilege, supervision, and proof." },
+      { property: "og:title", content: "Precedent AI · Legal AI Implementation for Ontario Law Firms" },
+      { property: "og:description", content: "Ontario's dedicated legal AI implementation partner. Vendor-neutral. Workflow-specific." },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: HomePage,
 });
-
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
-}
