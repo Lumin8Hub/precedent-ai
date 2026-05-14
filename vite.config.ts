@@ -9,7 +9,7 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 // If you ever deploy to https://<user>.github.io/<repo>/ instead of a custom
 // domain, change base to "/<repo>/".
 export default defineConfig({
-  base: "/precedent-ai/",
+  base: "/",
   plugins: [
     tanstackRouter({
       target: "react",
